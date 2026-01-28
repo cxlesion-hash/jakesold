@@ -16,13 +16,11 @@
   <meta property="og:url" content="https://jakesold.com" />
   <meta property="og:image" content="https://jakesold.com/profile.jpg" />
 
-  <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- OPTIONAL: Google Analytics 4 (replace G-XXXXXXXXXX) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
-    // If you don't want analytics yet, you can remove this whole script block.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -45,8 +43,12 @@
 
       --textBtn: #2f2f2f;
       --waBtn: #1f7a4a;
+
+      /* Brand colors */
       --kakaoBtn: #FEE500;
       --kakaoText: #191600;
+
+      --ig1:#f09433; --ig2:#e6683c; --ig3:#dc2743; --ig4:#cc2366; --ig5:#bc1888;
 
       --ring: rgba(17,24,39,0.14);
       --radius: 14px;
@@ -138,6 +140,7 @@
       margin: 6px auto 16px;
       display:block;
       border: 1px solid var(--ring);
+      background: rgba(0,0,0,0.03);
     }
 
     h1{
@@ -168,7 +171,7 @@
       padding: 14px 14px;
       border-radius: 12px;
       text-decoration:none;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.2px;
       transform: translateZ(0);
       transition: transform 0.05s ease;
@@ -179,7 +182,15 @@
     .secondary{ background: var(--btn2); color: var(--btn2Text); }
     .textbtn{ background: var(--textBtn); color: var(--btn2Text); }
     .wabtn{ background: var(--waBtn); color: #fff; }
+
+    /* Kakao brand */
     .kakaobtn{ background: var(--kakaoBtn); color: var(--kakaoText); }
+
+    /* Instagram brand */
+    .igbtn{
+      background: linear-gradient(45deg,var(--ig1),var(--ig2),var(--ig3),var(--ig4),var(--ig5));
+      color:#fff;
+    }
 
     .grid2{
       display:grid;
@@ -228,7 +239,10 @@
         </div>
       </div>
 
-      <!-- IMPORTANT: Rename your uploaded photo to profile.jpg and keep it in the repo root -->
+      <!-- IMPORTANT:
+           1) Upload your photo to the repo root and rename it to: profile.jpg
+           2) Then this will always load correctly.
+      -->
       <img class="avatar" src="profile.jpg" alt="Jake Chung">
 
       <h1>Jake Chung</h1>
@@ -257,16 +271,16 @@
 
       <!-- Messaging apps row -->
       <div class="grid2">
-        <!-- KakaoTalk: change YOUR_KAKAO_ID to your real Kakao ID -->
-        <a class="btn kakaobtn" href="https://open.kakao.com/o/YOUR_KAKAO_ID" target="_blank" rel="noopener">💛 Kakao</a>
+        <!-- KakaoTalk -->
+        <a class="btn kakaobtn" href="https://open.kakao.com/o/sjtvcGdi" target="_blank" rel="noopener">💛 KakaoTalk</a>
 
-        <!-- WeChat: easiest is a link to your WeChat QR image hosted on your domain -->
+        <!-- WeChat QR image hosted on your domain -->
         <a class="btn secondary" href="https://jakesold.com/wechat.png" target="_blank" rel="noopener">💚 WeChat</a>
       </div>
 
       <!-- Other links -->
       <a class="btn secondary" href="mailto:jake.jaewoo.chung@gmail.com">✉️ Email</a>
-      <a class="btn secondary" href="https://instagram.com/jake.jwc" target="_blank" rel="noopener">📸 Instagram</a>
+      <a class="btn igbtn" href="https://instagram.com/jake.jwc" target="_blank" rel="noopener">📸 Instagram</a>
 
       <div class="divider"></div>
 
