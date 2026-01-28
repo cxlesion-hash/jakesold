@@ -4,81 +4,319 @@
   <meta charset="UTF-8" />
   <title>Jake Chung | Vancouver Real Estate Advisor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <meta name="description" content="Jake Chung — Vancouver Real Estate Advisor. Call, text, WhatsApp, KakaoTalk, or email for buying/selling in Metro Vancouver." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph (link preview) -->
+  <meta property="og:title" content="Jake Chung | Vancouver Real Estate Advisor" />
+  <meta property="og:description" content="Call, text, WhatsApp, KakaoTalk, or email. Buying & selling guidance across Metro Vancouver." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jakesold.com" />
+  <meta property="og:image" content="https://jakesold.com/profile.jpg" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- OPTIONAL: Google Analytics 4 (replace G-XXXXXXXXXX) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    // If you don't want analytics yet, you can remove this whole script block.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg: #f7f7f7;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #556070;
+      --shadow: rgba(0,0,0,0.10);
+
+      --btn: #111827;
+      --btnText: #ffffff;
+
+      --btn2: #4b5563;
+      --btn2Text: #ffffff;
+
+      --textBtn: #2f2f2f;
+      --waBtn: #1f7a4a;
+      --kakaoBtn: #FEE500;
+      --kakaoText: #191600;
+
+      --ring: rgba(17,24,39,0.14);
+      --radius: 14px;
     }
-    .card {
-      max-width: 420px;
-      margin: 80px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+    /* Auto dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root{
+        --bg: #0b1220;
+        --card: #0f1b2e;
+        --text: #e5e7eb;
+        --muted: #b6c0cf;
+        --shadow: rgba(0,0,0,0.35);
+
+        --btn: #e5e7eb;
+        --btnText: #0b1220;
+
+        --btn2: rgba(229,231,235,0.18);
+        --btn2Text: #e5e7eb;
+
+        --textBtn: rgba(229,231,235,0.18);
+        --waBtn: #1b8a52;
+
+        --ring: rgba(229,231,235,0.18);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      padding:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      width: min(92vw, 460px);
+      margin: 64px auto;
+    }
+
+    .card{
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px 26px 22px;
+      box-shadow: 0 14px 40px var(--shadow);
       text-align: center;
+      border: 1px solid rgba(0,0,0,0.04);
     }
-    img {
-      width: 120px;
-      height: 120px;
+
+    @media (prefers-color-scheme: dark) {
+      .card{ border: 1px solid rgba(255,255,255,0.06); }
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--ring);
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lang{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      justify-content: flex-end;
+    }
+
+    .avatar{
+      width: 118px;
+      height: 118px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 20px;
+      margin: 6px auto 16px;
+      display:block;
+      border: 1px solid var(--ring);
     }
-    h1 {
-      margin: 10px 0 5px;
+
+    h1{
+      margin: 0 0 6px;
+      font-size: 40px;
+      letter-spacing: -0.6px;
     }
-    p {
-      color: #555;
-      line-height: 1.5;
+
+    .title{
+      margin: 0 0 14px;
+      font-weight: 600;
+      color: var(--muted);
     }
-    a.button {
-      display: block;
+
+    .bio{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      width:100%;
       margin: 12px 0;
-      padding: 12px;
-      background: #111;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
+      padding: 14px 14px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transform: translateZ(0);
+      transition: transform 0.05s ease;
     }
-    a.button.secondary {
-      background: #555;
+    .btn:active{ transform: scale(0.99); }
+
+    .primary{ background: var(--btn); color: var(--btnText); }
+    .secondary{ background: var(--btn2); color: var(--btn2Text); }
+    .textbtn{ background: var(--textBtn); color: var(--btn2Text); }
+    .wabtn{ background: var(--waBtn); color: #fff; }
+    .kakaobtn{ background: var(--kakaoBtn); color: var(--kakaoText); }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
     }
-    /* NEW: Text / WhatsApp accent colors */
-    a.button.text {
-      background: #2f2f2f;
+    .grid2 a{ margin:0; }
+
+    .divider{
+      height: 1px;
+      background: rgba(0,0,0,0.06);
+      margin: 16px 0 14px;
     }
-    a.button.whatsapp {
-      background: #1f7a4a;
+    @media (prefers-color-scheme: dark) {
+      .divider{ background: rgba(255,255,255,0.10); }
     }
-    .footer {
+
+    .footer{
       font-size: 12px;
-      color: #888;
-      margin-top: 22px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.45;
+    }
+
+    .tiny{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <img src="profile final 1 (1).png" alt="Jake Chung">
-    <h1>Jake Chung</h1>
-    <p><strong>Vancouver Real Estate Advisor</strong></p>
-    <p>
-      Guiding buyers and sellers through Vancouver real estate with clarity, strategy, and confidence.
-    </p>
+  <div class="wrap">
+    <div class="card">
 
-    <a class="button" href="tel:6043185175">📞 Call Me</a>
-    <a class="button text" href="sms:6043185175">💬 Text Me</a>
-    <a class="button whatsapp" href="https://wa.me/16043185175">🟢 WhatsApp</a>
-    <a class="button secondary" href="mailto:jake.jaewoo.chung@gmail.com">✉️ Email Me</a>
-    <a class="button secondary" href="https://instagram.com/jake.jwc" target="_blank">📸 Instagram</a>
+      <div class="topbar">
+        <div class="pill" id="copyLinkBtn" title="Copy link">
+          🔗 <span id="copyLabel">Copy link</span>
+        </div>
 
-    <div class="footer">
-      Licensed Real Estate Advisor · Metro Vancouver
+        <div class="lang">
+          <div class="pill" id="langEn">EN</div>
+          <div class="pill" id="langKo">KR</div>
+        </div>
+      </div>
+
+      <!-- IMPORTANT: Rename your uploaded photo to profile.jpg and keep it in the repo root -->
+      <img class="avatar" src="profile.jpg" alt="Jake Chung">
+
+      <h1>Jake Chung</h1>
+
+      <!-- EN -->
+      <div data-lang="en">
+        <p class="title">Vancouver Real Estate Advisor</p>
+        <p class="bio">
+          Guiding buyers and sellers through Vancouver real estate with clarity, strategy, and confidence.
+        </p>
+      </div>
+
+      <!-- KR -->
+      <div data-lang="ko" style="display:none;">
+        <p class="title">밴쿠버 부동산 어드바이저</p>
+        <p class="bio">
+          밴쿠버 및 메트로밴쿠버 지역에서 매수/매도 과정을<br>
+          명확하고 전략적으로 안내해드립니다.
+        </p>
+      </div>
+
+      <!-- Primary actions -->
+      <a class="btn primary" href="tel:6043185175">📞 Call</a>
+      <a class="btn textbtn" href="sms:6043185175">💬 Text</a>
+      <a class="btn wabtn" href="https://wa.me/16043185175" target="_blank" rel="noopener">🟢 WhatsApp</a>
+
+      <!-- Messaging apps row -->
+      <div class="grid2">
+        <!-- KakaoTalk: change YOUR_KAKAO_ID to your real Kakao ID -->
+        <a class="btn kakaobtn" href="https://open.kakao.com/o/YOUR_KAKAO_ID" target="_blank" rel="noopener">💛 Kakao</a>
+
+        <!-- WeChat: easiest is a link to your WeChat QR image hosted on your domain -->
+        <a class="btn secondary" href="https://jakesold.com/wechat.png" target="_blank" rel="noopener">💚 WeChat</a>
+      </div>
+
+      <!-- Other links -->
+      <a class="btn secondary" href="mailto:jake.jaewoo.chung@gmail.com">✉️ Email</a>
+      <a class="btn secondary" href="https://instagram.com/jake.jwc" target="_blank" rel="noopener">📸 Instagram</a>
+
+      <div class="divider"></div>
+
+      <!-- Trust footer -->
+      <div class="footer" data-lang="en">
+        Licensed Real Estate Advisor · Metro Vancouver<br />
+        <span class="tiny">jakesold.com</span>
+      </div>
+      <div class="footer" data-lang="ko" style="display:none;">
+        메트로밴쿠버 부동산 상담 · 매수/매도 문의 환영합니다<br />
+        <span class="tiny">jakesold.com</span>
+      </div>
+
     </div>
   </div>
+
+  <script>
+    // Language toggle (persist)
+    const langEn = document.getElementById('langEn');
+    const langKo = document.getElementById('langKo');
+    const blocksEn = document.querySelectorAll('[data-lang="en"]');
+    const blocksKo = document.querySelectorAll('[data-lang="ko"]');
+
+    function setLang(lang){
+      const isKo = lang === 'ko';
+      blocksEn.forEach(el => el.style.display = isKo ? 'none' : '');
+      blocksKo.forEach(el => el.style.display = isKo ? '' : 'none');
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = isKo ? 'ko' : 'en';
+    }
+
+    langEn.addEventListener('click', () => setLang('en'));
+    langKo.addEventListener('click', () => setLang('ko'));
+
+    const savedLang = localStorage.getItem('lang');
+    if(savedLang === 'ko') setLang('ko');
+
+    // Copy link
+    const copyBtn = document.getElementById('copyLinkBtn');
+    const copyLabel = document.getElementById('copyLabel');
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText('https://jakesold.com');
+        copyLabel.textContent = 'Copied!';
+        setTimeout(()=> copyLabel.textContent = 'Copy link', 1200);
+      }catch(e){
+        copyLabel.textContent = 'Copy manually';
+        setTimeout(()=> copyLabel.textContent = 'Copy link', 1200);
+      }
+    });
+  </script>
 </body>
 </html>
